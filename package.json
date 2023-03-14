@@ -4,6 +4,7 @@
         "@babel/preset-env": "^7.16.0",
         "@fortawesome/fontawesome-free": "^5.8.1",
         "@hotwired/stimulus": "^3.0.0",
+        "@popperjs/core": "^2.11.6",
         "@symfony/stimulus-bridge": "^3.0",
         "@symfony/ux-live-component": "file:vendor/symfony/ux-live-component/assets",
         "@symfony/webpack-encore": "^4.0",
@@ -25,6 +26,11 @@
         "sass-loader": "^13.2",
         "stimulus": "^2.0.0",
         "typeahead.js": "^0.11.1",
+        "typescript": "^4.9.5",
+        "vue": "^3.2.47",
+        "vue-loader": "^17.0.0",
+        "vue-router": "^4.1.6",
+        "vue-tsc": "^1.2.0",
         "webpack": "^5.72",
         "webpack-cli": "^4.9.1",
         "webpack-notifier": "^1.15.0"
@@ -32,9 +38,12 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "dev-server": "encore dev-server",
+        "dev-server": "encore dev-server --port 1234",
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "ts-loader": "^9.4.2"
     }
 }

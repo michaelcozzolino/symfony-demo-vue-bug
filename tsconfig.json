@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "paths": {
+      "*": ["assets/@types/*"],
+      "@/*": ["assets/*"]
+    },
+    "plugins": [
+      {"name":  "typescript-tslint-plugin"}
+    ],
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2017",
+    "typeRoots": [
+      "node_modules/@types",
+      "assets/@types",
+      "vendor/friendsofsymfony/jsrouting-bundle/Resources/ts"
+    ],
+  },
+  "exclude": [
+    "assets/admin/**/*"
+  ],
+  "include": [
+    "assets/**/*.ts",
+    "assets/**/*.vue",
+    "tests-js/**/*.ts",
+    "assets/@types/*.d.ts",
+    "vendor/friendsofsymfony/jsrouting-bundle/Resources/ts/router.d.ts"
+  ]
+}

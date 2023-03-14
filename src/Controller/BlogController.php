@@ -50,19 +50,7 @@ class BlogController extends AbstractController
     #[Cache(smaxage: 10)]
     public function index(Request $request, int $page, string $_format, PostRepository $posts, TagRepository $tags): Response
     {
-        $tag = null;
-        if ($request->query->has('tag')) {
-            $tag = $tags->findOneBy(['name' => $request->query->get('tag')]);
-        }
-        $latestPosts = $posts->findLatest($page, $tag);
-
-        // Every template name also has two extensions that specify the format and
-        // engine for that template.
-        // See https://symfony.com/doc/current/templates.html#template-naming
-        return $this->render('blog/index.'.$_format.'.twig', [
-            'paginator' => $latestPosts,
-            'tagName' => $tag?->getName(),
-        ]);
+        return $this->render('admin/blog/index.html.twig');
     }
 
     /**

@@ -1,9 +1,22 @@
 const Encore = require('@symfony/webpack-encore');
+const path = require('path');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
 if (!Encore.isRuntimeEnvironmentConfigured()) {
     Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
+}
+
+const entrypointPathPrefix = path.resolve(__dirname, 'assets', 'packages')
+
+// Configured Entrypoints
+const bundles = {
+    // Shared
+    test: `${entrypointPathPrefix}/test`,
+};
+
+for (const bundle in bundles) {
+    Encore.addEntry(bundle, bundles[bundle]);
 }
 
 Encore
@@ -76,6 +89,8 @@ Encore
         "window.Bloodhound": require.resolve('bloodhound-js'),
         "jQuery.tagsinput": "bootstrap-tagsinput"
     })
+    .enableTypeScriptLoader()
+    .enableVueLoader()
 ;
 
 module.exports = Encore.getWebpackConfig();
